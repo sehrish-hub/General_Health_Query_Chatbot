@@ -1,16 +1,18 @@
-# ❤️ General Health Query Chatbot (Agent SDK + Gemini)
+# ❤️ General Health Query Chatbot (Agent SDK + Gemini + Docker)
 
 ## 📌 Overview
-The General Health Query Chatbot is an AI-powered assistant that provides safe, friendly, and general health-related information using Gemini LLM (`gemini-2.5-flash`) via OpenAI Agents SDK.  
+The General Health Query Chatbot is an AI-powered assistant that provides safe, friendly, and general health-related information using Gemini LLM (gemini-2.5-flash) via OpenAI Agents SDK.  
 
-It includes a **Streamlit-based web UI** (chat bubbles, chat history) and a CLI interface, with a safety filter to prevent harmful advice.
+It includes a Streamlit-based web UI (chat bubbles, chat history) and a CLI interface, with a safety filter to prevent harmful advice.
+
+It is also Docker-ready for containerized deployment and easy sharing.
 
 ---
 
 ## 🎯 Objective
-- Provide general health info  
-- Explain symptoms & common causes  
-- Suggest preventive care & healthy habits  
+- Provide general health information
+- Explain symptoms and common causes  
+- Suggest preventive care & healthy habits 
 - Avoid diagnosis or prescription  
 - Safety filtering for emergencies  
 
@@ -20,29 +22,33 @@ It includes a **Streamlit-based web UI** (chat bubbles, chat history) and a CLI 
 - Python 3.10+  
 - OpenAI Agents SDK  
 - Gemini LLM (`gemini-2.5-flash`)  
-- dotenv, os  
+- dotenv, os (for secure API key access)
 - Streamlit (Web UI)  
-- AsyncOpenAI client  
+- AsyncOpenAI client
+- Docker (for deployment)
 
 ---
 
 ## 📂 Project Structure
 General_Health_Query_Chatbot/
 │
-├── chatbot.py # Streamlit UI + CLI version
+├── chatbot.py          # Streamlit UI + CLI version
 ├── requirements.txt
 ├── .env
+├── Dockerfile          # Docker setup for deployment
 └── README.md
+
 
 ---
 
 ## ✨ Features
-- Gemini-powered responses  
-- Safety filter for harmful queries  
+- Gemini-powered intelligent responses 
+- Safety filter for harmful queries
 - Friendly & clear explanations  
 - CLI & Streamlit interfaces  
 - Modular, expandable architecture  
-- Exception handling & secure API key management  
+- Exception handling & secure API key management
+- Docker-ready for easy deployment
 
 ---
 
@@ -72,11 +78,21 @@ GEMINI_API_KEY=your_api_key_here
 
 ## ▶️ How to Run
 
-### Streamlit UI
+### Streamlit UI (Local)
 streamlit run chatbot.py
 
 ### CLI (optional, if implemented)
 python chatbot.py
+
+### Docker Deployment
+
+Build Docker image:
+docker build -t health-chatbot .
+
+Run Docker container:
+docker run -d -p 8501:8501 --env-file .env health-chatbot
+
+Open browser:
 
 ---
 
